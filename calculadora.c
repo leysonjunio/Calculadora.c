@@ -17,7 +17,7 @@ long mutiplicar(int a, int b){
 }
 double dividir(double a, double b){
     double resultado = a / b;
-    printf("%f\n", resultado);
+    printf("%2.f\n", resultado);
     return resultado;
 }
 
@@ -40,7 +40,7 @@ int main(){
             mutiplicar(valor1, valor2);
             break;
         case '/':
-            dividir(valor1, valor2);
+            dividir((double)valor1, (double)valor2);
             break;
         default:
             printf("Algo deu errado");
