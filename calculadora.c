@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <raylib.h>
 
 int somar(int a, int b){
     int resultado = a + b;
@@ -22,11 +23,27 @@ double dividir(double a, double b){
 }
 
 int main(){
+    const int screenWidth = 350;
+    const int screenHeight = 500;
     char sinalizador;
     int valor1, valor2;
     double valorD1, valorD2;
 
-    printf("-----Calculadora C-----");
+    InitWindow(screenWidth, screenHeight, "Calculadora");
+    SetTargetFPS(60);
+
+    Rectangle display = {10, 10, 330, 120};
+
+    while(!WindowShouldClose()){
+        BeginDrawing();
+            ClearBackground(LIGHTGRAY);
+            DrawRectangleRounded(display, 0.1f, 15, GRAY);
+            DrawText("0", 310, 100, 30, BLACK);
+            //DrawText(TextFormat("resultado"), 310, 100, 30, BLACK);
+        EndDrawing();
+    }
+    
+   /* printf("-----Calculadora C-----");
     printf("\n Digiter o valor junto da expressão\n");
     scanf("%d %c %d", &valor1, &sinalizador, &valor2);
     switch (sinalizador) {
@@ -44,7 +61,8 @@ int main(){
             break;
         default:
             printf("Algo deu errado");
-    }
+    }*/
 
+    CloseWindow();
     return 0;
 }
