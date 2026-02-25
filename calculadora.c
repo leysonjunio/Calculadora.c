@@ -33,13 +33,26 @@ int main(){
     SetTargetFPS(60);
 
     Rectangle display = {10, 10, 330, 120};
+    Rectangle btnPos = {100, 100, 200, 50};
+    Color btnColor = GRAY;
+
+    if(CheckCollisionPointRec(GetMousePosition(), btnPos)){
+        btnColor = LIGHTGRAY;
+        if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON)){
+            //Ação do botao aqui
+        }
+    }else{
+            btnColor = GRAY;
+        }
 
     while(!WindowShouldClose()){
         BeginDrawing();
             ClearBackground(LIGHTGRAY);
             DrawRectangleRounded(display, 0.1f, 15, GRAY);
-            DrawText("0", 310, 100, 30, BLACK);
+            DrawText("0", 310, 100, 30, WHITE);
             //DrawText(TextFormat("resultado"), 310, 100, 30, BLACK);
+            DrawRectangleRec(btnPos, btnColor);
+            DrawText("Calcular", btnPos.x + 50, btnPos.y + 15, 20, BLACK);
         EndDrawing();
     }
     
