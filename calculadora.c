@@ -22,6 +22,10 @@ double dividir(double a, double b){
     return resultado;
 }
 
+void gerarBtn(){
+
+}
+
 int main(){
     const int screenWidth = 350;
     const int screenHeight = 500;
@@ -33,19 +37,18 @@ int main(){
     SetTargetFPS(60);
 
     Rectangle display = {10, 10, 330, 120};
-    Rectangle btnPos = {100, 100, 200, 50};
+    Rectangle btnPos = {10, 135, 200, 50};
     Color btnColor = GRAY;
 
-    if(CheckCollisionPointRec(GetMousePosition(), btnPos)){
-        btnColor = LIGHTGRAY;
-        if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON)){
+    while(!WindowShouldClose()){
+        if(CheckCollisionPointRec(GetMousePosition(), btnPos)){
+            btnColor = WHITE;
+            if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON)){
             //Ação do botao aqui
-        }
-    }else{
+            }
+        }else{
             btnColor = GRAY;
         }
-
-    while(!WindowShouldClose()){
         BeginDrawing();
             ClearBackground(LIGHTGRAY);
             DrawRectangleRounded(display, 0.1f, 15, GRAY);
